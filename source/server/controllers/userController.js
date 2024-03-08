@@ -38,7 +38,6 @@ const updateUser = async (req, res) => {
 
         const updatedUser = await User.findById(id);
         res.status(200).json(updatedUser);
-
     } catch (error) {
         res.status(500).json({message: error.message});
     }
@@ -52,15 +51,12 @@ const deleteUser = async (req, res) => {
             res.status(404).json({message: 'User not found'});
             return;
         }
-
         res.status(200).json({message: "User deleted successfully"});
-
     } catch (error) {
         res.status(500).json({message: error.message});
 
     }
 };
-
 
 module.exports = {
     getAllUsers,

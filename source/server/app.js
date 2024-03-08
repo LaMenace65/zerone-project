@@ -1,6 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const userRouter = require('./routers/userRouter');
+const questionRouter = require('./routers/questionRouter');
+const answerRouter = require('./routers/answerRouter');
+const categoryRouter = require('./routers/categoryRouter');
+const tagRouter = require('./routers/tagRouter');
 const app = express();
 
 // middleware
@@ -9,6 +13,10 @@ app.use(express.urlencoded({extended: false}));
 
 // routes
 app.use('/api/users', userRouter);
+app.use('/api/questions', questionRouter);
+app.use('/api/answers', answerRouter);
+app.use('/api/categories', categoryRouter);
+app.use('/api/tags', tagRouter);
 
 app.get('/', (req, res) => {
     res.send('Hello from Node API Server updated');

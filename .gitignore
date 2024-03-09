@@ -33,7 +33,7 @@ nb-configuration.xml
 *.rej
 
 # Local environment
-source/server/.env
+src/server/.env
 node_modules
 
 # Plugin directory

@@ -5,7 +5,10 @@ const questionRouter = require('./routers/questionRouter');
 const answerRouter = require('./routers/answerRouter');
 const categoryRouter = require('./routers/categoryRouter');
 const tagRouter = require('./routers/tagRouter');
+const adminRouter = require('./routers/adminRouter');
+const moderatorRouter = require('./routers/moderatorRouter');
 const app = express();
+require('dotenv').config();
 
 // middleware
 app.use(express.json());
@@ -17,12 +20,14 @@ app.use('/api/questions', questionRouter);
 app.use('/api/answers', answerRouter);
 app.use('/api/categories', categoryRouter);
 app.use('/api/tags', tagRouter);
+app.use('/api/admin', adminRouter);
+app.use('/api/moderator', moderatorRouter);
 
 app.get('/', (req, res) => {
     res.send('Hello from Node API Server updated');
 })
 
-mongoose.connect('mongodb+srv://maximefrance:IIVA9mh1rMSEBybU@clustermax.ld9bxpn.mongodb.net/ZeroneDB?retryWrites=true&w=majority&appName=ClusterMax', {})
+mongoose.connect(process.env.MONGO_URI, {})
     .then(() => {
         console.log('Connected to MongoDB!');
         app.listen(3000, () => {

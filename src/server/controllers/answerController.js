@@ -32,8 +32,7 @@ const updateAnswer = async (req, res) => {
         const id = req.params.id;
         const answer = await Answer.findByIdAndUpdate(id, req.body);
         if(!answer) {
-            res.status(404).json({message: 'Answer not found'});
-            return;
+            return res.status(404).json({message: 'Answer not found'});
         }
 
         const updatedAnswer = await Answer.findById(id);
@@ -48,8 +47,7 @@ const deleteAnswer = async (req, res) => {
         const id = req.params.id;
         const answer = await Answer.findByIdAndDelete(id);
         if(!answer) {
-            res.status(404).json({message: 'Answer not found'});
-            return;
+            return res.status(404).json({message: 'Answer not found'});
         }
         res.status(200).json({message: "Answer deleted successfully"});
     } catch (error) {

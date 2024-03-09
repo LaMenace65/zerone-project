@@ -24,8 +24,7 @@ const createCategory = async (req, res) => {
             const parentCategory = await Category.findOne({name: req.body.parent});
             console.log(parentCategory);
             if(!parentCategory) {
-                res.status(404).json({message: 'Parent category not found'});
-                return;
+                return res.status(404).json({message: 'Parent category not found'});
             }
         }
         const category = await Category.create(req.body);
@@ -40,8 +39,7 @@ const updateCategory = async (req, res) => {
         const id = req.params.id;
         const category = await Category.findByIdAndUpdate(id, req.body);
         if(!category) {
-            res.status(404).json({message: 'Category not found'});
-            return;
+            return res.status(404).json({message: 'Category not found'});
         }
 
         const updatedCategory = await Category.findById(id);
@@ -56,8 +54,7 @@ const deleteCategory = async (req, res) => {
         const id = req.params.id;
         const category = await Category.findByIdAndDelete(id);
         if(!category) {
-            res.status(404).json({message: 'Category not found'});
-            return;
+            return res.status(404).json({message: 'Category not found'});
         }
         res.status(200).json({message: "Category deleted successfully"});
     } catch (error) {

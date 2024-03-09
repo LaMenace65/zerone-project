@@ -22,8 +22,7 @@ const createQuestion = async (req, res) => {
     try {
         const tags = req.body.tags;
         if (tags.length > 6) {
-            res.status(400).json({message: "Tags can't be more than 6"});
-            return;
+            return res.status(400).json({message: "Tags can't be more than 6"});
         }
 
         const question = await Question.create(req.body);
@@ -38,8 +37,7 @@ const updateQuestion = async (req, res) => {
         const id = req.params.id;
         const question = await Question.findByIdAndUpdate(id, req.body);
         if(!question) {
-            res.status(404).json({message: 'Question not found'});
-            return;
+            return res.status(404).json({message: 'Question not found'});
         }
 
 
@@ -56,8 +54,7 @@ const deleteQuestion = async (req, res) => {
         const id = req.params.id;
         const question = await Question.findByIdAndDelete(id);
         if(!question) {
-            res.status(404).json({message: 'Question not found'});
-            return;
+            return res.status(404).json({message: 'Question not found'});
         }
         res.status(200).json({message: "Question deleted successfully"});
     } catch (error) {

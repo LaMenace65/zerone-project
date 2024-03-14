@@ -1,17 +1,17 @@
 import {
     createBrowserRouter,
     defer,
-    NavLink,
     Outlet,
     RouterProvider,
-    useNavigation,
     useRouteError
 } from "react-router-dom";
 import Profile from "./pages/Profile";
 import Blogs from "./pages/Blogs";
-import Spinner from "./components/Spinner";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import Navigation from "./components/Navigation";
+import Question from "./pages/Question";
+import Home from "./pages/Home";
 
 const router = createBrowserRouter([
     {
@@ -19,6 +19,10 @@ const router = createBrowserRouter([
         element: <Root/>,
         errorElement: <PageError/>,
         children: [
+            {
+                path: "/",
+                element: <Home/>,
+            },
             {
                 path: "blogs",
                 element: <div className="row">
@@ -45,6 +49,10 @@ const router = createBrowserRouter([
                         element: <Profile/>
                     }
                 ]
+            },
+            {
+                path: "questions",
+                element: <Question/>
             },
             {
                 path: "contact",
@@ -78,22 +86,8 @@ function PageError() {
 }
 
 function Root() {
-    const {state} = useNavigation();
     return <>
-        <header>
-            <nav>
-                <NavLink to="/">Home</NavLink>
-                <NavLink to="/blogs">Blogs</NavLink>
-                <NavLink to="/contact">Contact</NavLink>
-                <NavLink to="/login">Login</NavLink>
-                <NavLink to="/sign-up">Sign Up</NavLink>
-                <NavLink to="/profile">Profile</NavLink>
-            </nav>
-        </header>
-        <div className="container my-4">
-            {state === 'loading' && <Spinner />}
-            <Outlet/>
-        </div>
+        <Navigation/>
     </>
 }
 

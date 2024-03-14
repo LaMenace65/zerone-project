@@ -10,27 +10,45 @@ export default function SignUpForm() {
         console.log(surname, email, password);
     }
 
-    const handleChangeSurname = (event) => {
-        setSurname(event.target.value)
-    }
-
-    const handleChangeEmail = (event) => {
-        setEmail(event.target.value)
-    }
-
-    const handleChangePassword = (event) => {
-        setPassword(event.target.value)
-    }
-
     return <>
-        <form onSubmit={handleSubmit}>
-            <label>Surname:</label>
-            <input type="text" value={surname} onChange={handleChangeSurname}/>
-            <label>Email:</label>
-            <input type="email" value={email} onChange={handleChangeEmail}/>
-            <label>Password:</label>
-            <input type="password" value={password} onChange={handleChangePassword}/>
-            <button type="submit">Sign Up</button>
-        </form>
+        <div className="ConnexionForm">
+            <div className="header">
+                <div className="text">Create your account</div>
+                <div className="underline"></div>
+            </div>
+            <form onSubmit={handleSubmit}>
+                <div className="inputs">
+                    <div className="input-Login-SignUp">
+                        <i className="fi fi-rr-user"></i>
+                        <input type="text"
+                               value={surname}
+                               placeholder="Type your username"
+                               onChange={(event) => setSurname(event.target.value)}
+                        />
+                    </div>
+                    <div className="input-Login-SignUp">
+                        <i className="fi fi-rr-envelope"></i>
+                        <input type="email"
+                               value={email}
+                               placeholder="Type your email"
+                               onChange={(event) => setEmail(event.target.value)}
+                        />
+                    </div>
+                    <div className="input-Login-SignUp">
+                        <i className="fi fi-rr-lock"></i>
+                        <input type="password"
+                               value={password}
+                               placeholder="Type your password"
+                               onChange={(event) => setPassword(event.target.value)}/>
+                    </div>
+                </div>
+                <div className="connect-options">
+                    Already have an account? <span>Click Here!</span>
+                </div>
+                <div className="submit">
+                    <button type="submit">Sign Up</button>
+                </div>
+            </form>
+        </div>
     </>
 }

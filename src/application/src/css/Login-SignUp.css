@@ -1,0 +1,94 @@
+.ConnexionForm{
+    display: flex;
+    flex-direction: column;
+    margin: 10% auto auto;
+    width: 600px;
+    background: #fff;
+    padding-bottom: 30px;
+    border-radius: 10px;
+}
+
+.ConnexionForm button{
+    display: flex;
+    margin : 60px auto;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+    height: 50px;
+    color : #fff;
+    background: #3c009d;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    margin-top: 30px;
+
+    color: #3c009d;
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.underline{
+    width: 61px;
+    height: 6px;
+    background: #3c009d;
+    border-radius: 9px;
+}
+
+.inputs{
+    margin-top: 55px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.input-Login-SignUp{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: 480px;
+    height: 50px;
+    background: #eaeaea;
+    border-radius: 6px;
+
+}
+
+.input-Login-SignUp i{
+    margin: 0 30px;
+}
+
+.input-Login-SignUp label{
+    margin: 30px 0px;
+}
+
+.input-Login-SignUp input{
+    height : 50px;
+    width: 400px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #797979;
+    font-size: 18px;
+}
+
+
+.connect-options{
+    padding-left: 62px;
+    margin-top: 25px;
+    color: #797979;
+    font-size: 15px;
+}
+
+.connect-options span{
+    color: #4c00b4;
+    cursor: pointer;
+}
+

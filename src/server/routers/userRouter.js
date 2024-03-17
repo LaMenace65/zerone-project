@@ -1,5 +1,7 @@
 const express = require('express');
 const {
+    getAllUsers,
+    getUser,
     registerUser,
     editUser,
     deleteUser,
@@ -11,12 +13,17 @@ const {
 const authentication = require("../middlewares/authentication");
 const router = express.Router();
 
+// Get all users
+router.get('', getAllUsers);
+
+// Get a single user
+router.get('/:id', getUser);
 
 // User profile
 router.get('/me', authentication, profile);
 
 // Create a new user
-router.post('/', registerUser);
+router.post('/signup', registerUser);
 
 // Modify a user
 router.patch('/me', authentication, editUser);

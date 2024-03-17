@@ -1,0 +1,30 @@
+.public-header header{
+    border-bottom: 1px solid black;
+}
+
+.public-header nav ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 1.2em;
+    height: 50px;
+}
+
+.public-header nav ul li{
+    list-style-type: none;
+}
+
+.public-header nav a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.public-header nav a:hover{
+    color: #4c00b4;
+}
+
+.public-header nav a.active {
+    color: #3c009d;
+    font-weight: 700;
+}

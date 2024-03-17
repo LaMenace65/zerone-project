@@ -1,4 +1,4 @@
-export default function Device ({deviceInfo, onClick}) {
+const Device =  ({deviceInfo, onClick}) => {
 
     return <>
         <tr>
@@ -10,3 +10,5 @@ export default function Device ({deviceInfo, onClick}) {
         </tr>
     </>
 }
+
+export default Device;

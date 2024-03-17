@@ -1,10 +1,9 @@
 import {Await, NavLink, useAsyncValue, useLoaderData} from "react-router-dom";
-import Spinner from "../components/Spinner";
+import Spinner from "../../components/Spinner";
 import {Suspense} from "react";
 
-export default function Blogs() {
+const Blogs = () => {
     const {posts} = useLoaderData();
-    console.log(posts);
     return (
         <>
             <h1>Blog Articles</h1>
@@ -27,3 +26,5 @@ function PostsList() {
         ))}
     </ul>
 }
+
+export default Blogs;

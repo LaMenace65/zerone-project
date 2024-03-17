@@ -1,0 +1,41 @@
+#admin{
+    display: flex;
+}
+
+.admin-header{
+    display: flex;
+    align-items: center;
+    background-color: darkgoldenrod;
+    height: 50px;
+    border-bottom: 1px solid grey;
+    justify-content: space-between;
+}
+
+.admin-header button {
+    height: 40px;
+    width: 80px;
+    cursor: pointer;
+}
+
+.SideMenu{
+    flex-grow: 1;
+    border-right : 1px solid grey;
+}
+
+.SideMenu ul {
+    list-style-type: none;
+}
+
+.SideMenu>ul>li {
+    padding: 10px 0;
+}
+
+.SideMenu ul li a{
+    text-decoration: none;
+    color: black;
+}
+
+.admin-container{
+    flex-grow: 6;
+    padding-left: 15px;
+}

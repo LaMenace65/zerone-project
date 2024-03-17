@@ -1,13 +1,23 @@
 import {useState} from "react";
+import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
-export default function SignUpForm() {
-    const [surname, setSurname] = useState("");
+const SignUp = () => {
+    const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(surname, email, password);
+        const userData = {username, email, password};
+        axios.post("http://localhost:3000/api/users/signup", userData)
+            .then(res => {
+                console.log(res.data);
+                navigate("/home");
+            })
+            .catch(err => console.log(err.response));
+
     }
 
     return <>
@@ -17,29 +27,33 @@ export default function SignUpForm() {
                 <div className="underline"></div>
             </div>
             <form onSubmit={handleSubmit}>
-                <div className="inputs">
-                    <div className="input-Login-SignUp">
+                <div className="inputs-LSU">
+                    <div className="input-LSU">
                         <i className="fi fi-rr-user"></i>
                         <input type="text"
-                               value={surname}
+                               value={username}
                                placeholder="Type your username"
-                               onChange={(event) => setSurname(event.target.value)}
+                               onChange={(event) => setUsername(event.target.value)}
+                               required
                         />
                     </div>
-                    <div className="input-Login-SignUp">
+                    <div className="input-LSU">
                         <i className="fi fi-rr-envelope"></i>
                         <input type="email"
                                value={email}
                                placeholder="Type your email"
                                onChange={(event) => setEmail(event.target.value)}
+                               required
                         />
                     </div>
-                    <div className="input-Login-SignUp">
+                    <div className="input-LSU">
                         <i className="fi fi-rr-lock"></i>
                         <input type="password"
                                value={password}
-                               placeholder="Type your password"
-                               onChange={(event) => setPassword(event.target.value)}/>
+                               placeholder="Type your password (at least 8 characters)"
+                               onChange={(event) => setPassword(event.target.value)}
+                               required
+                        />
                     </div>
                 </div>
                 <div className="connect-options">
@@ -52,3 +66,5 @@ export default function SignUpForm() {
         </div>
     </>
 }
+
+export default SignUp;

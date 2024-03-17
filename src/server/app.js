@@ -5,8 +5,6 @@ const questionRouter = require('./routers/questionRouter');
 const answerRouter = require('./routers/answerRouter');
 const categoryRouter = require('./routers/categoryRouter');
 const tagRouter = require('./routers/tagRouter');
-const adminRouter = require('./routers/adminRouter');
-const moderatorRouter = require('./routers/moderatorRouter');
 const app = express();
 require('dotenv').config();
 
@@ -20,8 +18,6 @@ app.use('/api/questions', questionRouter);
 app.use('/api/answers', answerRouter);
 app.use('/api/categories', categoryRouter);
 app.use('/api/tags', tagRouter);
-app.use('/api/admin', adminRouter);
-app.use('/api/moderator', moderatorRouter);
 
 app.get('/', (req, res) => {
     res.send('Hello from Node API Server updated');
@@ -34,6 +30,6 @@ mongoose.connect(process.env.MONGO_URI, {})
             console.log('Server is running on port 3000');
         });
     })
-    .catch((err) => {
+    .catch(() => {
         console.log("Connection failed!")
     })

@@ -1,10 +1,7 @@
-.form-header{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.container {
+    padding: 20px;
 }
 
-/* Style du formulaire */
 .form-container {
     max-width: 800px;
     margin: 0 auto;
@@ -14,9 +11,10 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Style des champs de formulaire */
-.form-group {
-    margin-bottom: 20px;
+.form-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .form-group label {
@@ -30,13 +28,23 @@
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 10px;
+    padding: 10px 0 10px 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
+    resize: vertical;
+    box-sizing: border-box;
+
 }
 
-/* Style du bouton */
+.form-group .categoriesInfo{
+    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    color: grey;
+}
+
 .form-group button {
     padding: 10px 20px;
     background-color: #4c00b4;
@@ -47,8 +55,14 @@
     font-size: 16px;
 }
 
-.btn:hover {
-    background-color: #0056b3;
+.form-group .submit{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+button:hover {
+    background-color: #3c009d;
 }
 
 /* Style pour les images */
